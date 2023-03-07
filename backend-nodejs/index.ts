@@ -26,7 +26,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use("/api/v1/", user);
-app.listen(8081, () => {
+const port = process.env.PORT || 3000
+app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log("App listening on port 8081!");
+  console.log("App listening on port,!", port);
 });
