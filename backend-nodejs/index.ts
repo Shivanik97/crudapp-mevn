@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use("/api/v1/", user);
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 4000
 app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log("App listening on port,!", port);
