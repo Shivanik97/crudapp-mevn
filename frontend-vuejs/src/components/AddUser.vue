@@ -3,7 +3,7 @@
         <div class="q-pa-md">
             <h4>Add User</h4>
             <div class="q-gutter-md">
-                <q-form @submit="validateAndSubmit">
+                <q-form @submit="validateAndSubmit" >
                     <div v-if="errors.length">
                         <div v-bind:key="index" v-for="(error, index) in errors">
                             <q-field color="teal" borderless>
@@ -16,6 +16,7 @@
                         <q-input type="text" outlined v-model="lastName" label="Last Name" />
                         <q-input type="text" outlined v-model="emailId" label="Email Id" />
                         <q-btn type="submit">Save</q-btn>
+                        <q-btn to="/showusers">Back</q-btn>
                     </div>
                 </q-form>
             </div>
@@ -70,7 +71,7 @@ export default {
                         lastName: this.lastName,
                         emailId: this.emailId,
                     }).then(() => {
-                        this.$router.push("/users");
+                        this.$router.push("/showusers");
                     });
                 } else {
                     UserDataService.updateUser(this.id, {
@@ -79,7 +80,7 @@ export default {
                         lastName: this.lastName,
                         emailId: this.emailId,
                     }).then(() => {
-                        this.$router.push("/users");
+                        this.$router.push("/showusers");
                     });
                 }
             }

@@ -1,5 +1,8 @@
 <template>
     <div class="q-pa-md">
+        <HeaderComp>
+            <div class="q-pa-md">Welcome!!</div>
+        </HeaderComp>
         <div class="q-gutter-md">
             <q-markup-table :separator="separator" flat bordered>
                 <thead>
@@ -36,15 +39,18 @@
 </template>
 <script>
 import UserDataService from "../service/UserDataService";
-
+import HeaderComp from "./HeaderComp.vue";
 import { ref } from 'vue'
 
 export default {
-    name: "AllUsers", 
+    name: "AllUsers",
+    components: {
+        HeaderComp
+    },      
     data() {
         return {
             users: [],
-            message: "",
+            user: null,
             separator: ref('vertical')
         };
     },
